@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> HTML Forms </title>
+    <style>
+        div.b {
+            width: 250px;
+            background-color: lavender;
+            border-radius: 25px;
+            padding: 10px;
+            margin: 20px auto;
+            display: grid;
+
+        }
+
+        .g {
+            width: 220px;
+        }
+
+        .h {
+            font-weight: bolder;
+        }
+
+        .abcdefghijklmnopqrstuvwxyz {
+            background-color: rgb(2, 101, 36);
+            color: aliceblue;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            width: 250px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="b" id="b">
+        <form id="myForm">
+
+            <label for="fn" class="h"> Your Name: </label><br>
+            <input type="text" id="fn" name="fn" class="g" placeholder="e.g. John Doe" required><br>
+            <label for="eml" class="h"> Email Address: </label><br>
+            <input type="email" id="eml" name="eml" class="g" placeholder="e.g. johndoe@email.com" required><br>
+            <label for="ps" class="h"> Pizza Size: </label><br>
+            <select id="ps" name="ps" class="g" required>
+                <option value="" disabled selected> -- Choose a size -- </option>
+                <option value="S"> Small (4 pieces) </option>
+                <option value="M"> Medium (6 pieces) </option>
+                <option value="L"> Large (8 pieces) </option>
+                <option value="XL"> Extra Large (12 pieces) </option>
+                <option value="2XL"> Extra Extra Large (16 pieces) </option>
+            </select>
+            <br>
+            <label for="qnity" class="h"> Quantity: </label><br>
+            <input type="number" id="qnity" name="qnity" class="g" required min="1" max="100"><br>
+            <div class="h">Extra Toppings (optional):</div>
+            <input type="checkbox" id="Pepperoni" name="xt">
+            <label for="Pepperoni"> Pepperoni </label><br>
+            <input type="checkbox" id="Extra Cheese" name="xt">
+            <label for="Extra Cheese"> Extra Cheese </label><br>
+            <input type="checkbox" id="Mushrooms" name="xt">
+            <label for="Mushrooms"> Mushrooms </label><br>
+            <input type="checkbox" id="Onions" name="xt">
+            <label for="Onions"> Onions </label><br>
+            <input type="checkbox" id="Sausage" name="xt">
+            <label for="Sausage"> Sausage </label><br>
+            <input type="checkbox" id="Black Olives" name="xt">
+            <label for="Black Olives"> Black Olives </label><br>
+            <input type="checkbox" id="Green Peppers" name="xt">
+            <label for="Green Peppers"> Green Peppers </label><br>
+            <input type="checkbox" id="Pineapple" name="xt">
+            <label for="Pineapple"> Pineapple </label><br>
+            <input type="checkbox" id="rdng" name="xt">
+            <label for="Spinach"> Spinach </label><br>
+            <input type="checkbox" id="Ham" name="xt">
+            <label for="Ham"> Ham </label><br><br>
+            <input type="submit" value="Place Order" class="abcdefghijklmnopqrstuvwxyz"><br>
+        </form>
+    </div>
+    <script>
+        const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyYG6ijsylbuCD4nner7ej3Mrl6opCvqxECZ7naywzK0rYKWJDpc5RZipb4axRMZQ2n/exec';
+
+        document.getElementById('myForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {};
+
+            // Handle checkboxes with multiple values (e.g. interests)
+            for (const [key, value] of formData.entries()) {
+                if (data[key] !== undefined) {
+                    data[key] = [].concat(data[key], value);
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            try {
+                const response = await fetch(ENDPOINT, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(data),
+                    redirect: 'follow'
+                });
+                if (response.ok) {
+                    alert('Form submitted successfully!');
+                    this.reset();
+                } else {
+                    alert('Submission failed: ' + response.status);
+                }
+            } catch (error) {
+                alert('Error submitting form: ' + error.message);
+            }
+        });
+    </script>
+</body>
+
+</html>
