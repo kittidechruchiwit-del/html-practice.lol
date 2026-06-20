@@ -31,6 +31,18 @@
             width: 250px;
             text-align: center;
         }
+
+        div#order {
+            width: 190px;
+            background-color: rgb(169, 221, 176);
+            border-radius: 25px;
+            color: rgb(27, 73, 43);
+            padding: 10px;
+            margin: 20px auto;
+        }
+        span.abcd {
+            font-weight: bolder;
+        }
     </style>
 </head>
 
@@ -53,7 +65,9 @@
             </select>
             <br>
             <label for="qnity" class="h"> Quantity: </label><br>
-            <input type="number" id="qnity" name="qnity" class="g" required min="1" max="100"><br>
+            <input type="range" id="qnity" name="qnity" class="g" required min="1" max="100" value="1" step="1" 
+            oninput="document.getElementById('qnityValue').textContent = this.value">
+            <span id="qnityValue">1</span><br>
             <div class="h">Extra Toppings (optional):</div>
             <input type="checkbox" id="Pepperoni" name="xt">
             <label for="Pepperoni"> Pepperoni </label><br>
@@ -71,7 +85,7 @@
             <label for="Green Peppers"> Green Peppers </label><br>
             <input type="checkbox" id="Pineapple" name="xt">
             <label for="Pineapple"> Pineapple </label><br>
-            <input type="checkbox" id="rdng" name="xt">
+            <input type="checkbox" id="Spinach" name="xt">
             <label for="Spinach"> Spinach </label><br>
             <input type="checkbox" id="Ham" name="xt">
             <label for="Ham"> Ham </label><br><br>
@@ -90,11 +104,17 @@
             const emailAddress = document.getElementById('eml').value
             const pizzaSize = document.getElementById('ps').value
             const quanTity = document.getElementById('qnity').value
-            const extraToppings = document.getElementsByName('xt');
+            const extraToppings = document.getElementsByName('xt')
+            let extraToppingsAdded = [];
             for (let i = 0; i < extraToppings.length; i++) {
-                console.log(extraToppings[i].innerText , extraToppings[i].checked);
+                console.log(extraToppings[i]);
+                if (extraToppings[i].checked === true) {
+                    extraToppingsAdded.push(extraToppings[i].id)
+                }
             }
-            document.getElementById("order").innerHTML = "Order placed! <br> Name: " + fullName + "<br> Email: " + emailAddress + "<br> Size: " + pizzaSize + "<br> Quantity: " + quanTity + "<br> Toppings: " + extraToppings + " "
+            document.getElementById("order").innerHTML = "<span class='abcd'>✅ Order placed!</span> <br> <span class='abcd'> Name: </span>" + fullName 
+            + "<br> <span class='abcd'>Email: </span>" + emailAddress + "<br> <span class='abcd'>Size: </span>" + pizzaSize + "<br> <span class='abcd'>Quantity: </span>" 
+            + quanTity + "<br> <span class='abcd'>Toppings: </span>" + extraToppingsAdded + " "
         });
     </script>
 </body>
