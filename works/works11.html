@@ -40,6 +40,7 @@
             padding: 10px;
             margin: 20px auto;
         }
+
         span.abcd {
             font-weight: bolder;
         }
@@ -65,8 +66,8 @@
             </select>
             <br>
             <label for="qnity" class="h"> Quantity: </label><br>
-            <input type="range" id="qnity" name="qnity" class="g" required min="1" max="100" value="1" step="1" 
-            oninput="document.getElementById('qnityValue').textContent = this.value">
+            <input type="range" id="qnity" name="qnity" class="g" required min="1" max="100" value="1" step="1"
+                oninput="document.getElementById('qnityValue').textContent = this.value">
             <span id="qnityValue">1</span><br>
             <div class="h">Extra Toppings (optional):</div>
             <input type="checkbox" id="Pepperoni" name="xt">
@@ -112,9 +113,9 @@
                     extraToppingsAdded.push(extraToppings[i].id)
                 }
             }
-            document.getElementById("order").innerHTML = "<span class='abcd'>✅ Order placed!</span> <br> <span class='abcd'> Name: </span>" + fullName 
-            + "<br> <span class='abcd'>Email: </span>" + emailAddress + "<br> <span class='abcd'>Size: </span>" + pizzaSize + "<br> <span class='abcd'>Quantity: </span>" 
-            + quanTity + "<br> <span class='abcd'>Toppings: </span>" + extraToppingsAdded + " "
+            document.getElementById("order").innerHTML = "<span class='abcd'>✅ Order placed!</span> <br> <span class='abcd'> Name: </span>" + fullName
+                + "<br> <span class='abcd'>Email: </span>" + emailAddress + "<br> <span class='abcd'>Size: </span>" + pizzaSize + "<br> <span class='abcd'>Quantity: </span>"
+                + quanTity + "<br> <span class='abcd'>Toppings: </span>" + extraToppingsAdded + " "
         });
     </script>
 </body>
