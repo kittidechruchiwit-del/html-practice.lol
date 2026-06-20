@@ -77,41 +77,24 @@
             <label for="Ham"> Ham </label><br><br>
             <input type="submit" value="Place Order" class="abcdefghijklmnopqrstuvwxyz"><br>
         </form>
+        <div id="order">
+
+        </div>
     </div>
     <script>
         const ENDPOINT = 'https://script.google.com/macros/s/AKfycbyYG6ijsylbuCD4nner7ej3Mrl6opCvqxECZ7naywzK0rYKWJDpc5RZipb4axRMZQ2n/exec';
 
         document.getElementById('myForm').addEventListener('submit', async function (e) {
             e.preventDefault();
-
-            const formData = new FormData(this);
-            const data = {};
-
-            // Handle checkboxes with multiple values (e.g. interests)
-            for (const [key, value] of formData.entries()) {
-                if (data[key] !== undefined) {
-                    data[key] = [].concat(data[key], value);
-                } else {
-                    data[key] = value;
-                }
+            const fullName = document.getElementById('fn').value
+            const emailAddress = document.getElementById('eml').value
+            const pizzaSize = document.getElementById('ps').value
+            const quanTity = document.getElementById('qnity').value
+            const extraToppings = document.getElementsByName('xt');
+            for (let i = 0; i < extraToppings.length; i++) {
+                console.log(extraToppings[i].innerText , extraToppings[i].checked);
             }
-
-            try {
-                const response = await fetch(ENDPOINT, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                    body: JSON.stringify(data),
-                    redirect: 'follow'
-                });
-                if (response.ok) {
-                    alert('Form submitted successfully!');
-                    this.reset();
-                } else {
-                    alert('Submission failed: ' + response.status);
-                }
-            } catch (error) {
-                alert('Error submitting form: ' + error.message);
-            }
+            document.getElementById("order").innerHTML = "Order placed! <br> Name: " + fullName + "<br> Email: " + emailAddress + "<br> Size: " + pizzaSize + "<br> Quantity: " + quanTity + "<br> Toppings: " + extraToppings + " "
         });
     </script>
 </body>
