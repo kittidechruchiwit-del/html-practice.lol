@@ -19,6 +19,12 @@
             previewImg.src = src;
         }
 
+        async function openSource(src) {
+            const response = await fetch(src);
+            const code = await response.text();
+            document.getElementById('sourceCode').textContent = code;
+            }
+
         // var preview = document.getElementById('preview')
         // console.log(preview)
         // preview.addEventListener('show.bs.modal', function (e) {
@@ -64,8 +70,11 @@
                                 <p>Click cards to find matching pairs of numbers!</p>
                                 <div class="mt-auto d-flex gap-2">
                                     <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#preview" onclick="alert();openPreview('works/works6.html')">Demo</button>
-                                    <a href="#" class="btn  btn-sm btn-outline-secondary">Source</a>
+                                        data-bs-target="#preview"
+                                        onclick="openPreview('works/works6.html')">Demo</button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#source"
+                                        onclick="openSource('works/works6.html')">Source</button>
                                 </div>
                         </div>
                     </div>
@@ -78,8 +87,12 @@
                             <h5>Pattern Memory Game</h3>
                                 <p>Remember the pattern, and replicate it using the buttons!</p>
                                 <div class="mt-auto d-flex gap-2">
-                                    <a href="./works/works7.html" class="btn  btn-sm btn-outline-primary">Demo</a>
-                                    <a href="#" class="btn  btn-sm btn-outline-secondary">Source</a>
+                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#preview"
+                                        onclick="openPreview('works/works7.html')">Demo</button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#source"
+                                        onclick="openSource('works/works7.html')">Source</button>
                                 </div>
                         </div>
                     </div>
@@ -92,22 +105,29 @@
                             <h5>Arithmetic Matching Game</h3>
                                 <p>Click cards to find matching pairs of numbers that when added together make 10!</p>
                                 <div class="mt-auto d-flex gap-2">
-                                    <a href="works/works8.html" class="btn  btn-sm btn-outline-primary">Demo</a>
-                                    <a href="#" class="btn  btn-sm btn-outline-secondary">Source</a>
+                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#preview"
+                                        onclick="openPreview('works/works8.html')">Demo</button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#source"
+                                        onclick="openSource('works/works8.html')">Source</button>
                                 </div>
                         </div>
                     </div>
                 </article>
                 <article class="col-12 col-md-6 col-lg-4">
                     <div class="card h-100 shadow-sm">
-                        <img src="images/HMTL_Form.png" class="card-img-top project-image"
-                            alt="Project A screenshot">
+                        <img src="images/HMTL_Form.png" class="card-img-top project-image" alt="Project A screenshot">
                         <div class="card-body d-flex flex-column">
                             <h5>HTML Form</h3>
                                 <p>My first ever form made with pure HTML, CSS, and Javascript.</p>
                                 <div class="mt-auto d-flex gap-2">
-                                    <a href="works/works10.html" class="btn  btn-sm btn-outline-primary">Demo</a>
-                                    <a href="#" class="btn  btn-sm btn-outline-secondary">Source</a>
+                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#preview"
+                                        onclick="openPreview('works/works10.html')">Demo</button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#source"
+                                        onclick="openSource('works/works10.html')">Source</button>
                                 </div>
                         </div>
                     </div>
@@ -120,8 +140,12 @@
                             <h5>My First Bootstrap Page</h3>
                                 <p>My first ever page made using Bootstrap!</p>
                                 <div class="mt-auto d-flex gap-2">
-                                    <a href="works/works12.html" class="btn  btn-sm btn-outline-primary">Demo</a>
-                                    <a href="#" class="btn  btn-sm btn-outline-secondary">Source</a>
+                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#preview"
+                                        onclick="openPreview('works/works12.html')">Demo</button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#source"
+                                        onclick="openSource('works/works12.html')">Source</button>
                                 </div>
                         </div>
                     </div>
@@ -134,8 +158,12 @@
                             <h5>Pricing Cards</h3>
                                 <p>Pricing Cards example made using Bootstrap!</p>
                                 <div class="mt-auto d-flex gap-2">
-                                    <a href="works/works17.html" class="btn  btn-sm btn-outline-primary">Demo</a>
-                                    <a href="#" class="btn  btn-sm btn-outline-secondary">Source</a>
+                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#preview"
+                                        onclick="openPreview('works/works17.html')">Demo</button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#source"
+                                        onclick="openSource('works/works17.html')">Source</button>
                                 </div>
                         </div>
                     </div>
@@ -145,7 +173,20 @@
                 <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
                         <div class="modal-body p-0 overflow-hidden">
-                            <iframe id="previewImg" src="" class="w-100 h-100 border-0" title="Project preview">
+                            <iframe id="previewImg" src="" class="w-100 h-100 border-0"
+                                title="Project preview"></iframe>
+                        </div>
+                        <div class="modal-footer"><button class="btn btn-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="source">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <pre id="sourceCode"></pre>
                         </div>
                         <div class="modal-footer"><button class="btn btn-secondary"
                                 data-bs-dismiss="modal">Close</button>

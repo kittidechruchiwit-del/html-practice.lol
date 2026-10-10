@@ -54,12 +54,13 @@
     <script>
 
         var preview = document.getElementById('preview')
-        preview.addEventListener('show.bs.modal', function(e){
-        var trigger =e.relatedTarget
-        var src = trigger.getAttribute('data-src')
-        document.getElementById('previewImg').src = src
-         })
+        preview.addEventListener('show.bs.modal', function (e) {
+            var trigger = e.relatedTarget
+            var src = trigger.getAttribute('data-src')
+            document.getElementById('previewImg').src = src
+        })
     </script>
+    <!-- <button onclick="document.location='/past-work.html'">BACK TO PAST WORKS</button> -->
 </body>
 
 </html>
