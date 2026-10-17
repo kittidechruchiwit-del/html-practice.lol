@@ -13,27 +13,7 @@
             object-fit: fill;
         }
     </style>
-    <script>
-        function openPreview(src) {
-            const previewImg = document.getElementById('previewImg');
-            previewImg.src = src;
-        }
-
-        async function openSource(src) {
-            const response = await fetch(src);
-            const code = await response.text();
-            document.getElementById('sourceCode').textContent = code;
-        }
-
-        // var preview = document.getElementById('preview')
-        // console.log(preview)
-        // preview.addEventListener('show.bs.modal', function (e) {
-        //     var trigger = e.relatedTarget
-        //     var src = trigger.getAttribute('data-src')
-        //     console.log(trigger,src)
-        //     document.getElementById('previewImg').src = src
-        // })
-    </script>
+    
 </head>
 
 <body>
@@ -60,115 +40,7 @@
     <main class="container py-5">
         <section id="projects">
             <h2 class="mb-4">Past Projects</h2>
-            <div class="row g-4">
-                <article class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="images/Number_Matching_Game.png" class="card-img-top project-image"
-                            alt="Project A screenshot">
-                        <div class="card-body d-flex flex-column">
-                            <h5>Number Matching Game</h3>
-                                <p>Click cards to find matching pairs of numbers!</p>
-                                <div class="mt-auto d-flex gap-2">
-                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#preview"
-                                        onclick="openPreview('works/works6.html')">Demo</button>
-                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#source"
-                                        onclick="openSource('works/works6.html')">Source</button>
-                                </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="images/Pattern_Memory_Game.png" class="card-img-top project-image"
-                            alt="Project A screenshot">
-                        <div class="card-body d-flex flex-column">
-                            <h5>Pattern Memory Game</h3>
-                                <p>Remember the pattern, and replicate it using the buttons!</p>
-                                <div class="mt-auto d-flex gap-2">
-                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#preview"
-                                        onclick="openPreview('works/works7.html')">Demo</button>
-                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#source"
-                                        onclick="openSource('works/works7.html')">Source</button>
-                                </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="images/Arithmetic_Matching_Game.png" class="card-img-top project-image"
-                            alt="Project A screenshot">
-                        <div class="card-body d-flex flex-column">
-                            <h5>Arithmetic Matching Game</h3>
-                                <p>Click cards to find matching pairs of numbers that when added together make 10!</p>
-                                <div class="mt-auto d-flex gap-2">
-                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#preview"
-                                        onclick="openPreview('works/works8.html')">Demo</button>
-                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#source"
-                                        onclick="openSource('works/works8.html')">Source</button>
-                                </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="images/HMTL_Form.png" class="card-img-top project-image" alt="Project A screenshot">
-                        <div class="card-body d-flex flex-column">
-                            <h5>HTML Form</h3>
-                                <p>My first ever form made with pure HTML, CSS, and Javascript.</p>
-                                <div class="mt-auto d-flex gap-2">
-                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#preview"
-                                        onclick="openPreview('works/works10.html')">Demo</button>
-                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#source"
-                                        onclick="openSource('works/works10.html')">Source</button>
-                                </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="images/Bootstrap_Site_1.png" class="card-img-top project-image"
-                            alt="Project A screenshot">
-                        <div class="card-body d-flex flex-column">
-                            <h5>My First Bootstrap Page</h3>
-                                <p>My first ever page made using Bootstrap!</p>
-                                <div class="mt-auto d-flex gap-2">
-                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#preview"
-                                        onclick="openPreview('works/works12.html')">Demo</button>
-                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#source"
-                                        onclick="openSource('works/works12.html')">Source</button>
-                                </div>
-                        </div>
-                    </div>
-                </article>
-                <article class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="images/Bootstrap_Pricing_Cards.png" class="card-img-top project-image"
-                            alt="Project A screenshot">
-                        <div class="card-body d-flex flex-column">
-                            <h5>Pricing Cards</h3>
-                                <p>Pricing Cards example made using Bootstrap!</p>
-                                <div class="mt-auto d-flex gap-2">
-                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
-                                        data-bs-target="#preview"
-                                        onclick="openPreview('works/works17.html')">Demo</button>
-                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
-                                        data-bs-target="#source"
-                                        onclick="openSource('works/works17.html')">Source</button>
-                                </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
+            <div class="row g-4" id="projectList"></div>
             <div class="modal fade" id="preview">
                 <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
@@ -226,6 +98,51 @@
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openPreview(src) {
+            const previewImg = document.getElementById('previewImg');
+            previewImg.src = src;
+        }
+
+        async function openSource(src) {
+            const response = await fetch(src);
+            const code = await response.text();
+            document.getElementById('sourceCode').textContent = code;
+        }
+
+        const projects = [
+                    { title: 'Number Matching Game', desc: 'Click cards to find matching pairs of numbers!', img: 'Number_Matching_Game.png', file: 'works6.html' },
+                    { title: 'Pattern Memory Game', desc: 'Remember the pattern, and replicate it using the buttons!', img: 'Pattern_Memory_Game.png', file: 'works7.html' },
+                    { title: 'Arithmetic Matching Game', desc: 'Click cards to find matching pairs of numbers that when added together make 10!', img: 'Arithmetic_Matching_Game.png', file: 'works8.html' },
+                    { title: 'HTML Form', desc: 'My first ever form made with pure HTML, CSS, and Javascript.', img: 'HMTL_Form.png', file: 'works10.html' },
+                    { title: 'My First Bootstrap Page', desc: 'My first ever page made using Bootstrap!', img: 'Bootstrap_Site_1.png', file: 'works12.html' },
+                    { title: 'Pricing Cards', desc: 'Pricing Cards example made using Bootstrap!', img: 'Bootstrap_Pricing_Cards.png', file: 'works17.html' },
+                ];
+
+        let html = '';
+        for (const p of projects) {
+            html += `
+            <article class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <img src="images/${p.img}" class="card-img-top project-image"
+                            alt="${p.title}">
+                        <div class="card-body d-flex flex-column">
+                            <h5>${p.title}</h5>
+                                <p>${p.desc}</p>
+                                <div class="mt-auto d-flex gap-2">
+                                    <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
+                                        data-bs-target="#preview"
+                                        onclick="openPreview('works/${p.files}')">Demo</button>
+                                    <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
+                                        data-bs-target="#source"
+                                        onclick="openSource('works/${p.files}')">Source</button>
+                                </div>
+                        </div>
+                    </div>
+                </article>`;
+        }
+        document.getElementById('projectList').innerHTML = html;
+    </script>
 </body>
 
 </html>
