@@ -12,8 +12,17 @@
             height: 220px;
             object-fit: fill;
         }
+
+        .typing::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0;}
+        }
     </style>
-    
+
 </head>
 
 <body>
@@ -33,7 +42,9 @@
     <header class="bg-dark text-white text-center py-5">
         <div class="container">
             <h1 class="display-4">Punn</h1>
-            <p class="lead">I hope you enjoy my site!</p>
+            <p class="lead">
+                <span id="typed" class="typing"></span>
+            </p>
             <p><a href="#projects" class="btn btn-primary">See my work</a></p>
         </div>
     </header>
@@ -132,16 +143,26 @@
                                 <div class="mt-auto d-flex gap-2">
                                     <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"
                                         data-bs-target="#preview"
-                                        onclick="openPreview('works/${p.files}')">Demo</button>
+                                        onclick="openPreview('works/${p.file}')">Demo</button>
                                     <button class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal"
                                         data-bs-target="#source"
-                                        onclick="openSource('works/${p.files}')">Source</button>
+                                        onclick="openSource('works/${p.file}')">Source</button>
                                 </div>
                         </div>
                     </div>
                 </article>`;
         }
         document.getElementById('projectList').innerHTML = html;
+
+        const typed = document.getElementById('typed');
+        const typedText = 'I hope you enjoy my site!';
+
+        let letters = 0;
+        const timer = setInterval(function () {
+            letters++;
+            typed.textContent = typedText.slice(0, letters);
+            if (letters === typedText.length) clearInterval(timer);
+        }, 80);
     </script>
 </body>
 
